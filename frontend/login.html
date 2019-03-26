@@ -14,21 +14,26 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" rel="stylesheet">
 
     <!-- Custom styles -->
-    <link href="styleLogin.css" rel="stylesheet">
+    <link href="styles/styleLogin.css" rel="stylesheet">
 
   </head>
 
   <body>
-    <div class="container col-xs-4 col-xs-offset-4">
-      <form>
+    <div class="container-fluid col-md-12">
+      <h2 class="text-left">Video<strong>club</strong></h2>
+    </div>
+    <div class="container col-md-4 col-md-offset-4">
+      <form action="" method="get">
         <h2 >Iniciar sesión</h2>
-        <div class="form-group input-group-lg">
-          <input type="text" class="form-control" required="" id="inputUser" placeholder="Nombre de usuario" >
+        <div class="input-group input-group-lg" id="group1">
+          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+          <input type="text" class="form-control" required="" name="username" placeholder="Nombre de usuario" >
         </div>
-        <div class="form-group input-group-lg">
-          <input type="password" class="form-control" required="required" id="inputPwd" placeholder="Contraseña">
+        <div class="input-group input-group-lg">
+          <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+          <input type="password" class="form-control" required="required" name="passwd" placeholder="Contraseña">
         </div>
-        <button type="submit" class="btn btn-primary btn-lg btn-block">Iniciar sesión</button>
+        <button type="submit" class="btn btn-primary btn-lg btn-block" >Iniciar sesión</button>
       </form>
     </div>
 
@@ -37,6 +42,6 @@
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    <script src="scripts/script.js"></script>
+    <script src="scripts/scriptLogin.js"></script>
   </body>
 </html>
