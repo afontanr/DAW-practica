@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="pantalla main">
+    <meta name="description" content="pantalla para registrar un usuario">
     <meta name="author" content="Alfonso Fontan Rivas">
     <title>Videoclub</title>
     <!-- Bootstrap core CSS -->
@@ -28,7 +28,7 @@
           <li class="dropdown" id="menuUser">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">Usuarios</a>
               <ul class="dropdown-menu" id="subMenuUser">
-                <li><a href="addUser.html">Alta</a></li>
+                <li><a href="#">Alta</a></li>
                 <li><a href="#">Administrar</a></li>
               </ul>
               <li class="dropdown" id="menuPeli">
@@ -55,8 +55,27 @@
       </div>
     </nav>
 
-    <div class="container text-center ">
-      <h1  id="encabezado"><strong>Comienza</strong><br><small>buscando una película</small></h1>
+    <div class="container col-md-4 col-md-offset-4">
+      <form action="main.html" method="">
+        <h2 >Alta de un usuario</h2>
+        <div class="input-group input-group-lg">
+          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+          <input type="text" class="form-control" required="" name="username" placeholder="Nombre de usuario" >
+        </div>
+        <div class="input-group input-group-lg">
+          <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+          <input type="text" class="form-control" required="" name="username" placeholder="Correo electrónico" >
+        </div>
+        <div class="input-group input-group-lg">
+          <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+          <input type="password" class="form-control" required="required" name="passwd" placeholder="Contraseña">
+        </div>
+        <div class="input-group input-group-lg">
+          <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+          <input type="password" class="form-control" required="required" name="rPasswd" placeholder="Confirmar contraseña">
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg btn-block" >Registrar</button>
+      </form>
     </div>
     <!-- Scripts jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
