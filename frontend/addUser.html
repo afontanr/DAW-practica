@@ -22,13 +22,13 @@
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="#">Video<strong>club</strong></a>
+          <a class="navbar-brand" href="main.html">Video<strong>club</strong></a>
         </div>
         <ul class="nav navbar-nav">
           <li class="dropdown" id="menuUser">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">Usuarios</a>
               <ul class="dropdown-menu" id="subMenuUser">
-                <li><a href="#">Alta</a></li>
+                <li><a href="addUser.html">Alta</a></li>
                 <li><a href="#">Administrar</a></li>
               </ul>
               <li class="dropdown" id="menuPeli">
@@ -58,23 +58,28 @@
     <div class="container col-md-4 col-md-offset-4">
       <form action="main.html" method="">
         <h2 >Alta de un usuario</h2>
-        <div class="input-group input-group-lg">
+        <div class="input-group input-group-lg" id="inptNUser">
           <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-          <input type="text" class="form-control" required="" name="username" placeholder="Nombre de usuario" >
+          <input type="text" class="form-control" id="username" data-container="body" data-toggle="popover"
+           data-placement="right" data-content="El nombre de usuario no puede contener espacios en blanco"
+           required="" name="username" trigger="manual" maxlength="10" placeholder="Nombre de usuario" max="10">
         </div>
-        <div class="input-group input-group-lg">
+        <div class="input-group input-group-lg" id="inptEmail">
           <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-          <input type="text" class="form-control" required="" name="username" placeholder="Correo electrónico" >
+          <input type="text" class="form-control" id="email" data-container="body" data-toggle="popover"
+           data-placement="right" data-content="El formato es incorrecto"
+           required="" name="email" placeholder="Correo electrónico" >
         </div>
-        <div class="input-group input-group-lg">
+        <div class="input-group input-group-lg" id="inptPwd">
           <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
           <input type="password" class="form-control" required="required" name="passwd" placeholder="Contraseña">
         </div>
-        <div class="input-group input-group-lg">
+        <div class="input-group input-group-lg" id="inptRPwd">
           <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-          <input type="password" class="form-control" required="required" name="rPasswd" placeholder="Confirmar contraseña">
+          <input type="password" class="form-control" id="rPasswd" data-container="body" data-toggle="popover"
+           data-placement="right" data-content="Las contraseñas no coinciden" required="required" name="rPasswd" placeholder="Confirmar contraseña">
         </div>
-        <button type="submit" class="btn btn-primary btn-lg btn-block" >Registrar</button>
+        <button type="submit" id="btn" class="btn btn-primary btn-lg btn-block">Registrar</button>
       </form>
     </div>
     <!-- Scripts jquery -->
@@ -82,6 +87,6 @@
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    <script src="scripts/scriptMain.js"></script>
+    <script src="scripts/scriptAddUser.js"></script>
   </body>
 </html>
