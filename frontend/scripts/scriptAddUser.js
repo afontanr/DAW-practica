@@ -52,6 +52,7 @@ $(document).ready(function(){
     if(pass1 != pass2 || (pass1 == '')){
       $("#inptRPwd").addClass("has-error");
       $("#rPasswd").popover('show');
+      return false;
     }
     else{
       if($("#inptRPwd").hasClass("has-error")){
