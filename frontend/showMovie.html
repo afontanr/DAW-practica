@@ -30,13 +30,13 @@
               <a class="dropdown-toggle" data-toggle="dropdown" href="#">Usuarios</a>
                 <ul class="dropdown-menu" id="subMenuUser">
                   <li><a href="addUser.html">Alta</a></li>
-                  <li><a href="adminUsers.html">Administrar</a></li>
+                  <li><a href="#">Administrar</a></li>
                 </ul>
             <li class="dropdown" id="menuPeli">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#">Películas</a>
                 <ul class="dropdown-menu" id="subMenuPeli">
                   <li><a href="addMovie.html">Añadir</a></li>
-                  <li><a href="adminMovie.html">Administrar</a></li>
+                  <li><a href="#">Administrar</a></li>
                 </ul>
           </ul>
           <form class="navbar-form navbar-left" action="mostrarPelicula.html">
@@ -55,10 +55,49 @@
         </div>
       </div>
     </nav>
-
-    <div class="container text-center ">
-      <h1  id="encabezado"><strong>Comienza</strong><br><small>buscando una película</small></h1>
+    <div class="container table-resposive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Título</th>
+            <th scope="col">URL de la película</th>
+            <th scope="col">Director</th>
+            <th scope="col">Reparto</th>
+            <th scope="col">URL de la portada</th>
+            <th scope="col">Valoración</th>
+            <th scope="col">Administrar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Guardians of the Galaxy</th>
+            <td>https://www.youtube.com/embed/dzj4P11Yr6E</td>
+            <td>James Gunn</td>
+            <td>
+              <ul>
+                <li type="disc">Chris Patt</li>
+                <li type="disc">Zoe Saldana</li>
+                <li type="disc">Dave Bautista</li>
+                <li type="disc">Vin Diesel</li>
+                <li type="disc">Bradley Cooper</li>
+              </ul>
+            </td>
+            <td>http://image.tmdb.org/t/p/w342/y31QB9kn3XSudA15tV7UWQ9XLuW.jpg</td>
+            <td>7.9</td>
+            <td>
+              <button type="button" class="btn btn-primary" >
+                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+              </button>
+              <button type="button" class="btn btn-primary" >
+                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
+
+
     <!-- Scripts jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
