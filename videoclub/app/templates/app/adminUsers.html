@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="pantalla para administrar usuarios">
+    <meta name="author" content="Alfonso Fontan Rivas">
+    <title>Videoclub</title>
+    <!-- Bootstrap core CSS -->
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" rel="stylesheet">
+
+    <!-- Custom styles -->
+    <link href="styles/styleMain.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="main.html">Video<strong>club</strong></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="dropdown" id="menuUser">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">Usuarios</a>
+                <ul class="dropdown-menu" id="subMenuUser">
+                  <li><a href="addUser.html">Alta</a></li>
+                  <li><a href="adminUsers.html">Administrar</a></li>
+                </ul>
+            <li class="dropdown" id="menuPeli">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">Películas</a>
+                <ul class="dropdown-menu" id="subMenuPeli">
+                  <li><a href="addMovie.html">Añadir</a></li>
+                  <li><a href="adminMovie.html">Administrar</a></li>
+                </ul>
+          </ul>
+          <form class="navbar-form navbar-left" action="mostrarPelicula.html">
+            <div class="input-group">
+              <input type="text" class="form-control" required="" placeholder="Buscar película" name="search">
+              <div class="input-group-btn">
+                <button class="btn btn-default" type="submit">
+                  <i class="glyphicon glyphicon-search"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="login.html">Cerrar sesión <span class="glyphicon glyphicon-log-out"></span></a></li>
+        </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <form action="showUsers.html" method="">
+        <h2 >Buscar usuario</h2>
+        <div class="input-group input-group-lg">
+          <input type="text" class="form-control" required="" name="username" placeholder="Nombre de usuario" >
+          <div class="input-group-btn">
+            <button class="btn btn-default" type="submit">
+              <i class="glyphicon glyphicon-search"></i>
+            </button>
+        </div>
+        </div>
+      </form>
+
+    </div>
+
+    <!-- Scripts jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script src="scripts/scriptMain.js"></script>
+  </body>
+</html>
