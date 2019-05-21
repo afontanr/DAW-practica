@@ -7,6 +7,8 @@ from django.contrib.auth import authenticate, login, logout
 
 
 def index(request):
+    if request.user.is_authenticated:
+        logout(request)
     context = {}
     return render(request, "app/login.html", context)
 
@@ -34,7 +36,9 @@ def loginView(request):
             return render(request, "app/main.html", context)
 
         else:
-            return HttpResponse("NO")
+            context = {'isError': 1,}
+            return render(request, "app/login.html", context)
     else:
-        return HttpResponse("done")
+        context = {}
+        return render(request, "app/login.html", context)
 
