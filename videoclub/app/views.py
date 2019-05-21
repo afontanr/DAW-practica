@@ -7,8 +7,7 @@ from django.contrib.auth import authenticate, login, logout
 
 
 def index(request):
-    #template = loader.get_template("app/login.html")
-    context = {'name': 'Pepe'}
+    context = {}
     return render(request, "app/login.html", context)
 
 def loginView(request):
