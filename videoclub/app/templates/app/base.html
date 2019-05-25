@@ -27,7 +27,7 @@
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="main.html">Video<strong>club</strong></a>
+                <a class="navbar-brand" href={% url 'main' %}>Video<strong>club</strong></a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -42,13 +42,13 @@
                     <li class="dropdown" id="menuPeli">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Películas</a>
                         <ul class="dropdown-menu" id="subMenuPeli">
-                            <li><a href="addMovie.html">Añadir</a></li>
+                            <li><a href={% url 'addMovie' %}>Añadir</a></li>
                             <li><a href="adminMovie.html">Administrar</a></li>
                         </ul>
                         {% endif %}
                 </ul>
 
-                <form class="navbar-form navbar-left" action="mostrarPelicula.html">
+                <form class="navbar-form navbar-left" action="mostrarPelicula.html" method="GET">
                     {% csrf_token %}
                     <div class="input-group">
                         <input type="text" class="form-control" required="" placeholder="Buscar película" name="search">
@@ -60,7 +60,7 @@
                     </div>
                 </form>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href={% url 'index' %}>Cerrar sesión <span class="glyphicon glyphicon-log-out"></span></a>
+                    <li><a href={% url 'login' %}>Cerrar sesión <span class="glyphicon glyphicon-log-out"></span></a>
                     </li>
                 </ul>
             </div>

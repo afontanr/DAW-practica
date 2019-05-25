@@ -39,6 +39,13 @@ def loginView(request):
             context = {'isError': 1,}
             return render(request, "app/login.html", context)
     else:
-        context = {}
-        return render(request, "app/login.html", context)
+        isAdmin = 0
+        name = request.user.username
+        if name == 'admin':
+            isAdmin = 1
+        context = {'isAdmin': isAdmin}
+        return render(request, "app/main.html", context)
+
+def addMovie (request):
+    return render(request, "app/addMovie.html")
 
