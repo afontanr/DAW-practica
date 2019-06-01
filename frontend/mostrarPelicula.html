@@ -57,11 +57,48 @@
     </nav>
 
     <div class="container">
-      <div class="input-group">
-        <input type="image" src="http://image.tmdb.org/t/p/w342/y31QB9kn3XSudA15tV7UWQ9XLuW.jpg" data-toggle="modal" data-target="#myModal1"/>
-        <input type="image" src="http://image.tmdb.org/t/p/w342/y4MBh0EjBlMuOzv9axM4qJlmhzz.jpg" data-toggle="modal" data-target="#myModal2"/>
-        <input type="image" src="http://image.tmdb.org/t/p/w342/ca799tQJwj4lkkQpBdXohlvEtuQ.jpg" data-toggle="modal" data-target="#myModal3"/>
+      <h2>Recomendaciones</h2>
+      <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+          <div class="item active">
+            <input type="image" src="http://image.tmdb.org/t/p/w342/y31QB9kn3XSudA15tV7UWQ9XLuW.jpg" data-toggle="modal" data-target="#myModal1"/>
+            <input type="image" src="http://image.tmdb.org/t/p/w342/y4MBh0EjBlMuOzv9axM4qJlmhzz.jpg" data-toggle="modal" data-target="#myModal2"/>
+            <input type="image" src="http://image.tmdb.org/t/p/w342/ca799tQJwj4lkkQpBdXohlvEtuQ.jpg" data-toggle="modal" data-target="#myModal3"/>
+          </div>
+          <div class="item">
+            <input type="image" src="http://image.tmdb.org/t/p/w342/y31QB9kn3XSudA15tV7UWQ9XLuW.jpg" data-toggle="modal" data-target="#myModal1"/>
+            <input type="image" src="http://image.tmdb.org/t/p/w342/y4MBh0EjBlMuOzv9axM4qJlmhzz.jpg" data-toggle="modal" data-target="#myModal2"/>
+            <input type="image" src="http://image.tmdb.org/t/p/w342/ca799tQJwj4lkkQpBdXohlvEtuQ.jpg" data-toggle="modal" data-target="#myModal3"/>
+          </div>
+          <div class="item">
+            <input type="image" src="http://image.tmdb.org/t/p/w342/y31QB9kn3XSudA15tV7UWQ9XLuW.jpg" data-toggle="modal" data-target="#myModal1"/>
+            <input type="image" src="http://image.tmdb.org/t/p/w342/y4MBh0EjBlMuOzv9axM4qJlmhzz.jpg" data-toggle="modal" data-target="#myModal2"/>
+            <input type="image" src="http://image.tmdb.org/t/p/w342/ca799tQJwj4lkkQpBdXohlvEtuQ.jpg" data-toggle="modal" data-target="#myModal3"/>
+          </div>
+        </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        </a>
+        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        </a>
       </div>
+
+
+
+
+
+
 
       <!-- Modal1 -->
       <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
