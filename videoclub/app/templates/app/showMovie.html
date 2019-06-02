@@ -8,10 +8,18 @@
   {% block content %}
 
     <div class="container table-resposive">
+      {% if isError %}
+      <div class="alert alert-danger alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+            aria-hidden="true">&times;</span></button>
+        <strong>Error</strong> No se pudo modificar la película
+      </div>
+      {% endif %}
       <table class="table table-striped">
         <thead>
           <tr>
             <th scope="col">Título</th>
+            <th scope="col">ID</th>
             <th scope="col">URL de la película</th>
             <th scope="col">Descripción</th>
             <th scope="col">Director</th>
@@ -25,6 +33,7 @@
           {% for movie, cast in movies %}
           <tr>
             <th scope="row">{{ movie.title }}</th>
+            <td>{{ movie.id }}</td>
             <td>{{ movie.url_movie }}</td>
             <td>{{ movie.summary }}</td>
             <td>{{movie.director}}</td>
@@ -40,10 +49,10 @@
             
             <td>{{movie.rate}}</td>
             <td>
-              <button type="button" class="btn btn-primary row" >
+              <button type="button" class="btn btn-primary row" data-toggle="modal" data-target="#myModal1">
                 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
               </button>
-              <button type="button" class="btn btn-primary" >
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal2">
                 <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
               </button>
             </td>
@@ -51,9 +60,71 @@
           {% endfor %}
           
         </tbody>
-
-
       </table>
+
+          <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content container-fluid">
+                <form action={% url 'modificarPelicula' %} method="POST">
+                  {% csrf_token %}
+                  <h2>Modificar pelicula</h2>
+          
+                  <div class="input-group input-group-lg">
+                    <span class="input-group-addon"></span>
+                    <input type="text" class="form-control" required="required" name="id" placeholder="Id de la pelicula">
+                  </div>
+
+                  <div class="input-group input-group-lg">
+                    <span class="input-group-addon"></span>
+                    <input type="text" class="form-control" name="moviename" placeholder="Nombre de la película">
+                  </div>
+                  <div class="input-group input-group-lg">
+                    <span class="input-group-addon"></span>
+                    <input type="text" class="form-control"  name="movieurl" placeholder="URL de la película">
+                  </div>
+                  <div class="input-group input-group-lg">
+                    <span class="input-group-addon"></span>
+                    <input type="text" class="form-control" name="director" placeholder="Director">
+                  </div>
+                  <div class="input-group input-group-lg">
+                    <span class="input-group-addon"></span>
+                    <input type="text" class="form-control" name="poster" placeholder="URL de la portada">
+                  </div>
+                  <div class="input-group input-group-lg">
+                    <span class="input-group-addon"></span>
+                    <input type="number" class="form-control" name="rate" min="0" max="10" step=".1" placeholder="Valoración">
+                  </div>
+                  
+          
+                  <div class="btn-group input-group input-group-lg btn-block" role="group">
+                    <button type="submit" id="btn" class="btn btn-primary btn-lg btn-block">Modificar</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content container-fluid">
+                <form action={% url 'eliminarPelicula' %} method="POST">
+                  {% csrf_token %}
+                  <h2>Eliminar película</h2>
+          
+                  <div class="input-group input-group-lg">
+                    <span class="input-group-addon"></span>
+                    <input type="text" class="form-control" required="" name="idM" placeholder="ID de la pelicula">
+                  </div>
+          
+          
+                  <div class="btn-group input-group input-group-lg btn-block" role="group">
+                    <button type="submit" id="btn" class="btn btn-primary btn-lg btn-block">Eliminar</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
     </div>
 
       {% endblock %}
@@ -61,4 +132,5 @@
       <!-- Scripts jquery -->
       {% block js %}
       <script src="{% static 'app/scriptMain.js' %}"></script>
+      <script src="{% static 'app/mostrarPelicula.js' %}"></script>
       {% endblock %}

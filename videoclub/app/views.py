@@ -235,7 +235,7 @@ def addMovie(request):
         if not actor2:
             actor2 = cast[1]['name']
         if not actor4:
-            actor3 = cast[2]['name']
+            actor4 = cast[2]['name']
         if not actor5:
             actor5 = cast[3]['name']
         if not urlPoster:
@@ -244,7 +244,7 @@ def addMovie(request):
         if not rate:
             rate = movie['vote_average']
 
-        summary = movie['overview']
+        summary = movie['overview'][:500]
         m = Movie(title=title, url_movie = urlMovie, director = director, url_poster = urlPoster,summary = summary, rate = rate)
         m.save()
         c = Casting(film = m, actor1 = actor1, actor2 = actor2, actor4 = actor4, actor5 = actor5)
@@ -261,6 +261,7 @@ def addMovie(request):
         context={'isAdmin':1}
     return render(request, "app/addMovie.html",context)
 
+@login_required
 def modificarUsuario(request):
     name = request.POST['username']
     chk = User.objects.filter(username = name)
@@ -282,6 +283,58 @@ def modificarUsuario(request):
     else:
         context = {'isAdmin': 1, 'isError': 1}
         return render(request, "app/showUsers.html", context)
+
+
+@login_required
+def modificarMovie(request):
+    idM = request.POST['id']
+    m = Movie.objects.filter(id = idM)
+    if m:
+        title= request.POST['moviename']
+        url_m = request.POST['movieurl']
+        director = request.POST['director']
+        url_p = request.POST['poster']
+        rate = request.POST['rate']
+        if title:
+            m[0].title = title
+        if url_m:
+            m[0].url_movie = url_m
+        if director:
+            m[0].director = director
+        if url_p:
+            m[0].url_poster = url_p
+        if rate:
+            m[0].rate = rate
+        m[0].save()
+        context = {'isAdmin': 1, }
+        return render(request, "app/showMovie.html", context)
+    else:
+      context = {'isAdmin': 1, 'isError': 1}
+      return render(request, "app/showMovie.html", context)
+@login_required
+def eliminarUsuario(request):
+    idU = request.POST['username']
+    u = User.objects.filter(username = idU)
+    if u:
+        u[0].delete()
+        context = {'isAdmin':1,}
+        return render(request, "app/showUsers.html", context)
+    else:
+        context = {'isAdmin': 1,'isError':1,}
+        return render(request, "app/showUsers.html", context)
+
+
+@login_required
+def eliminarPelicula(request):
+    idM = request.POST['idM']
+    m = Movie.objects.filter(id=idM)
+    if m:
+        m[0].delete()
+        context = {'isAdmin': 1, }
+        return render(request, "app/showMovie.html", context)
+    else:
+        context = {'isAdmin': 1, 'isError': 1, }
+        return render(request, "app/showMovie.html", context)
 
 
 

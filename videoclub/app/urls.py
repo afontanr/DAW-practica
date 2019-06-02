@@ -12,4 +12,7 @@ urlpatterns = [
     path('userList', views.userList, name='userList'),
     path('addUser', views.addUser, name='addUser'),
     path('modificarUsuario', views.modificarUsuario, name='modificarUsuario'),
+    path('modificarPelicula', views.modificarMovie, name='modificarPelicula'),
+    path('eliminarUsuario', views.eliminarUsuario, name='eliminarUsuario'),
+    path('eliminarPelicula', views.eliminarPelicula, name='eliminarPelicula'),
 ] 

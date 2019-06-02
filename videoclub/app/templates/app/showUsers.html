@@ -31,7 +31,7 @@
               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal1">
                 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
               </button>
-              <button type="button" class="btn btn-primary" >
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal2">
                 <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
               </button>
             </td>
@@ -70,6 +70,30 @@
               </div>
             </div>
           </div>
+
+
+          <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content container-fluid">
+                <form action={% url 'eliminarUsuario' %} method="POST">
+                  {% csrf_token %}
+                  <h2>Eliminar usuario</h2>
+          
+                  <div class="input-group input-group-lg">
+                    <span class="input-group-addon"></span>
+                    <input type="text" class="form-control" required="" name="username"
+                      placeholder="Nombre de usuario">
+                  </div>
+                  
+          
+                  <div class="btn-group input-group input-group-lg btn-block" role="group">
+                    <button type="submit" id="btn" class="btn btn-primary btn-lg btn-block">Eliminar</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          
 
       {% endblock %}
       
