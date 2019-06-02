@@ -5,4 +5,5 @@ urlpatterns = [
     path('', views.index, name='login'),
     path('main', views.loginView, name='main'),
     path('addMovie', views.addMovie, name='addMovie'),
+    path('search', views.searchMovie, name='search'),
 ] 

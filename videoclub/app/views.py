@@ -95,15 +95,23 @@ def addMovie (request):
 
 @login_required
 def searchMovie(request):
-    name = request.user.usernme
+    name = request.user.username
     search = request.GET['search']
-    movies = Movie.objects.filter(title__icontains = search)
+    movies = Movie.objects.filter(title__icontains = search)[:6]
+    casts = []
+    isAdmin = 0
+    if name == 'admin':
+        isAdmin = 1
+    for movie in movies:
+        cast = Casting.objects.filter(film = movie)
+        casts = casts + [(movie, cast[0])]
     context = {}
-    if name == 'isAdmin':
-        context == {'isAdmin': 1,}
     
-    if movies:
-        context = context + {'movies': movies,}
+    add1={}
+    if casts:
+        add1 = {'movies': casts, }
+    add2 = {'isAdmin': isAdmin, }
+    context={**add1,**add2}
     
     return render(request, "app/mostrarPelicula.html",context)
 

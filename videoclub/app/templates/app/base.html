@@ -48,7 +48,7 @@
                         {% endif %}
                 </ul>
 
-                <form class="navbar-form navbar-left" action="mostrarPelicula.html" method="GET">
+                <form class="navbar-form navbar-left" action={% url 'search' %} method="GET">
                     {% csrf_token %}
                     <div class="input-group">
                         <input type="text" class="form-control" required="" placeholder="Buscar película" name="search">
