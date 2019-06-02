@@ -11,4 +11,5 @@ urlpatterns = [
     path('movieList', views.movieList, name='movieList'),
     path('userList', views.userList, name='userList'),
     path('addUser', views.addUser, name='addUser'),
+    path('modificarUsuario', views.modificarUsuario, name='modificarUsuario'),
 ] 

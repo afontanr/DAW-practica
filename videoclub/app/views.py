@@ -261,4 +261,29 @@ def addMovie(request):
         context={'isAdmin':1}
     return render(request, "app/addMovie.html",context)
 
+def modificarUsuario(request):
+    name = request.POST['username']
+    chk = User.objects.filter(username = name)
+    if chk and request.POST:
+        email = request.POST['email']
+        newPwd = request.POST['newPwd']
+        rNewPwd = request.POST['rNewPwd']
+        if email:
+            chk[0].email = email
+        if newPwd:
+            if newPwd == rNewPwd:
+                chk[0].set_password(newPwd)
+            else:
+                context = {'isAdmin':1, 'isError':1}
+                return render(request, "app/showUsers.html",context)
+        chk[0].save()
+        context = {'isAdmin': 1,}
+        return render(request, "app/showUsers.html", context)
+    else:
+        context = {'isAdmin': 1, 'isError': 1}
+        return render(request, "app/showUsers.html", context)
+
+
+
+
 

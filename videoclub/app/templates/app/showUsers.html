@@ -7,6 +7,13 @@
   {% block content %}
 
     <div class="container table-resposive">
+      {% if isError %}
+      <div class="alert alert-danger alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+            aria-hidden="true">&times;</span></button>
+        <strong>Error</strong> No se pudo modificar el usuario
+      </div>
+      {% endif %}
       <table class="table table-striped">
         <thead>
           <tr>
@@ -21,7 +28,7 @@
             <th scope="row">{{user.username}}</th>
             <td>{{user.email}}</td>
             <td>
-              <button type="button" class="btn btn-primary" >
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal1">
                 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
               </button>
               <button type="button" class="btn btn-primary" >
@@ -31,9 +38,43 @@
           </tr>
           {% endfor %}
 
+
+          <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content container-fluid">
+                <form action={% url 'modificarUsuario' %} method="POST">
+                  {% csrf_token %}
+                  <h2>Modificar usuario</h2>
+          
+                  <div class="input-group input-group-lg">
+                    <span class="input-group-addon"></span>
+                    <input type="text" class="form-control" required="" name="username" placeholder="Nombre de usuario ha modificar">
+                  </div>
+                  <div class="input-group input-group-lg">
+                    <span class="input-group-addon"></span>
+                    <input type="text" class="form-control" name="email" placeholder="Email">
+                  </div>
+                  <div class="input-group input-group-lg">
+                    <span class="input-group-addon"></span>
+                    <input type="password" class="form-control" name="newPwd" placeholder="Nueva contraseña">
+                  </div>
+                  <div class="input-group input-group-lg">
+                    <span class="input-group-addon"></span>
+                    <input type="password" class="form-control" name="rNewPwd" placeholder="Repetir nueva contraseña">
+                  </div>
+          
+                  <div class="btn-group input-group input-group-lg btn-block" role="group">
+                    <button type="submit" id="btn" class="btn btn-primary btn-lg btn-block">Modificar</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
       {% endblock %}
       
       <!-- Scripts jquery -->
       {% block js %}
       <script src="{% static 'app/scriptMain.js' %}"></script>
+      <script src="{% static 'app/mostrarPelicula.js' %}"></script>
       {% endblock %}

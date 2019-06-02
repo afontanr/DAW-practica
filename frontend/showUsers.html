@@ -70,8 +70,8 @@
             <th scope="row">anafj</th>
             <td>anafdz@gmail.com</td>
             <td>
-              <button type="button" class="btn btn-primary" >
-                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal1">
+                <span class="glyphicon glyphicon-edit" aria-hidden="true" ></span>
               </button>
               <button type="button" class="btn btn-primary" >
                 <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
@@ -106,6 +106,37 @@
       </table>
     </div>
 
+    <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content container-fluid">
+          <form action="main.html" method="">
+            <h2 >Modificar usuario</h2>
+
+            <div class="input-group input-group-lg">
+              <span class="input-group-addon"></span>
+              <input type="text" class="form-control" name="username" placeholder="Nombre de usuario ha modificar">
+            </div>
+            <div class="input-group input-group-lg">
+              <span class="input-group-addon"></span>
+              <input type="text" class="form-control"  name="emaill" placeholder="Email">
+            </div>
+            <div class="input-group input-group-lg">
+              <span class="input-group-addon"></span>
+              <input type="text" class="form-control" name="newPwd" placeholder="Nueva contraseña">
+            </div>
+            <div class="input-group input-group-lg">
+              <span class="input-group-addon"></span>
+              <input type="text" class="form-control" name="rNewPwd" placeholder="Repetir nueva contraseña">
+            </div>
+
+            <div class="btn-group input-group input-group-lg btn-block" role="group">
+              <button type="submit" id="btn" class="btn btn-primary btn-lg btn-block">Modificar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
 
     <!-- Scripts jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -113,5 +144,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <script src="scripts/scriptMain.js"></script>
+    <script src="scripts/mostrarPelicula.js"></script>
   </body>
 </html>
