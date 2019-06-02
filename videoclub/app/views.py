@@ -5,6 +5,7 @@ from django.http import HttpResponse
 from django.template import loader
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 from app.models import Best, Casting, Movie
 
 
@@ -78,16 +79,20 @@ def loginView(request):
     else:
         isAdmin = 0
         name = request.user.username
-        if name == 'admin':
-            isAdmin = 1
+        if request.user.is_authenticated :
+            if name == 'admin':
+                isAdmin = 1
         
-        context = {
-                    'isAdmin': isAdmin,
-                    'zip_cast123': zip_cast123,
-                    'zip_cast456': zip_cast456,
-                    'zip_cast789': zip_cast789
-                    }
-        return render(request, "app/main.html", context)
+            context = {
+                        'isAdmin': isAdmin,
+                        'zip_cast123': zip_cast123,
+                        'zip_cast456': zip_cast456,
+                        'zip_cast789': zip_cast789
+                        }
+            return render(request, "app/main.html", context)
+        else:
+            context={}
+            return render(request, "app/login.html", context)
 
 def addMovie (request):
     return render(request, "app/addMovie.html")
@@ -111,9 +116,63 @@ def searchMovie(request):
     if casts:
         add1 = {'movies': casts, }
     add2 = {'isAdmin': isAdmin, }
+
     context={**add1,**add2}
     
     return render(request, "app/mostrarPelicula.html",context)
+
+
+@login_required
+def adminMovie(request):
+    name = request.user.username
+    context = {}
+    if name == 'admin':
+        context = {'isAdmin': 1,}
+        return render(request,"app/adminMovie.html",context)
+    return render(request,"app/login.html",context)
+
+
+@login_required
+def movieList(request):
+    name = request.user.username
+    context={}
+    if name == 'admin':
+        search = request.GET['filmName']
+        movies = Movie.objects.filter(title__icontains=search)
+        casts = []
+        for movie in movies:
+            cast = Casting.objects.filter(film=movie)
+            casts = casts + [(movie, cast[0])]
+        context={'isAdmin':1, 'movies':casts}
+        return render(request,"app/showMovie.html",context)
+    else:
+        return render(request,"app/login.html",context)
+
+
+@login_required
+def adminUser(request):
+    name = request.user.username
+    context = {}
+    if name == 'admin':
+        context = {'isAdmin': 1, }
+        return render(request, "app/adminUsers.html", context)
+    return render(request, "app/login.html", context)
+
+
+@login_required
+def userList(request):
+    name = request.user.username
+    context = {}
+    if name == 'admin':
+        search = request.GET['username']
+        users = User.objects.filter(username__icontains=search)
+
+        context = {'isAdmin': 1, 'users': users}
+        return render(request, "app/showUsers.html", context)
+    else:
+        return render(request, "app/login.html", context)
+
+
 
 
 

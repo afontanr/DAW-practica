@@ -6,4 +6,8 @@ urlpatterns = [
     path('main', views.loginView, name='main'),
     path('addMovie', views.addMovie, name='addMovie'),
     path('search', views.searchMovie, name='search'),
+    path('adminMovie', views.adminMovie, name='adminMovie'),
+    path('adminUser', views.adminUser, name='adminUser'),
+    path('movieList', views.movieList, name='movieList'),
+    path('userList', views.userList, name='userList'),
 ] 
