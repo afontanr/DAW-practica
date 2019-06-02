@@ -1,4 +1,5 @@
 from django.shortcuts import render
+import requests
 
 # Create your views here.
 from django.http import HttpResponse
@@ -94,8 +95,7 @@ def loginView(request):
             context={}
             return render(request, "app/login.html", context)
 
-def addMovie (request):
-    return render(request, "app/addMovie.html")
+
 
 
 @login_required
@@ -173,6 +173,92 @@ def userList(request):
         return render(request, "app/login.html", context)
 
 
+@login_required
+def addUser(request):
+    name = request.user.username
+    context = {}
+    if request.method == "POST":
+        usernm = request.POST['username']
+        email = request.POST['email']
+        pwd = request.POST['passwd']
+        rePwd = request.POST['rPasswd']
+        userCheck = User.objects.filter(username=usernm)
+        if name == 'admin' and pwd == rePwd and not userCheck:
+            user = User.objects.create_user(usernm, email)
+            user.set_password(pwd)
+            user.save()
+            context = {'isAdmin': 1}
+            return render(request, "app/addUser.html", context)
+        context={}
+        context = {'isError' : 1}
+        return render(request,"app/addUser.html",context)
+    else:
+        if name == 'admin':
+            context = {'isAdmin':1}
+            return render(request,"app/addUser.html",context)
+        return render(request, "app/login.html", context)
 
+
+def addMovie(request):
+    context = {}
+    name = request.user.username
+    baseMovie = "https://api.themoviedb.org/3/search/movie?api_key=43ec2cc431400ac5b0df3eb26323fd4d&language=en-US&query="
+    baseCast = "https://api.themoviedb.org/3/movie/%d/credits?api_key=43ec2cc431400ac5b0df3eb26323fd4d"
+    if request.method == "POST":
+        title = request.POST['moviename']
+        urlMovie = request.POST['movieurl']
+        director = request.POST['director']
+        actor1 = request.POST['actor1']
+        actor2 = request.POST['actor2']
+        actor4 = request.POST['actor3']
+        actor5 = request.POST['actor4']
+        urlPoster = request.POST['poster']
+        rate = request.POST['rate']
+        response = requests.get(baseMovie+title)
+        api = response.json()
+        result = api['results']
+        movie = result[0]
+        film = Movie.objects.filter(title = movie['title'])
+        title = movie['title']
+        if film:
+            context ={'isAdmin': 1, 'isError': 1}
+            return render(request, "app/addMovie.html", context)
+        idMovie = movie['id']
+        cast_response = requests.get(baseCast % idMovie)
+        apiCast = cast_response.json()
+        cast = apiCast['cast']
+        crew = apiCast['crew']
+        if not director:
+            director = crew[0]['name']
+        if not actor1:
+            actor1 = cast[0]['name']
+        if not actor2:
+            actor2 = cast[1]['name']
+        if not actor4:
+            actor3 = cast[2]['name']
+        if not actor5:
+            actor5 = cast[3]['name']
+        if not urlPoster:
+            basePoster = "http://image.tmdb.org/t/p/w342/%s"
+            urlPoster = basePoster % movie['poster_path']
+        if not rate:
+            rate = movie['vote_average']
+
+        summary = movie['overview']
+        m = Movie(title=title, url_movie = urlMovie, director = director, url_poster = urlPoster,summary = summary, rate = rate)
+        m.save()
+        c = Casting(film = m, actor1 = actor1, actor2 = actor2, actor4 = actor4, actor5 = actor5)
+        c.save()
+
+
+        context = {'isAdmin': 1}
+        return render(request, "app/addMovie.html", context)
+
+        
+
+
+    if name == 'admin':
+        context={'isAdmin':1}
+    return render(request, "app/addMovie.html",context)
 
 

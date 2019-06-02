@@ -9,6 +9,7 @@
   {% block content %}
     <div class="container">
       <form action={% url 'movieList' %} method="GET">
+        {% csrf_token %}
         <h2 >Buscar película</h2>
         <div class="input-group input-group-lg">
           <input type="text" class="form-control" required="" name="filmName" placeholder="Título de la película" >

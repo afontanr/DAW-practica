@@ -10,4 +10,5 @@ urlpatterns = [
     path('adminUser', views.adminUser, name='adminUser'),
     path('movieList', views.movieList, name='movieList'),
     path('userList', views.userList, name='userList'),
+    path('addUser', views.addUser, name='addUser'),
 ] 
