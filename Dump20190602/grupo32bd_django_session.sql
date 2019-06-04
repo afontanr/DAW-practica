@@ -1,0 +1,53 @@
+-- MySQL dump 10.13  Distrib 8.0.16, for Win64 (x86_64)
+--
+-- Host: 127.0.0.1    Database: grupo32bd
+-- ------------------------------------------------------
+-- Server version	8.0.16
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+ SET NAMES utf8 ;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `django_session`
+--
+
+DROP TABLE IF EXISTS `django_session`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `django_session` (
+  `session_key` varchar(40) NOT NULL,
+  `session_data` longtext NOT NULL,
+  `expire_date` datetime(6) NOT NULL,
+  PRIMARY KEY (`session_key`),
+  KEY `django_session_expire_date_a5c62663` (`expire_date`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `django_session`
+--
+
+LOCK TABLES `django_session` WRITE;
+/*!40000 ALTER TABLE `django_session` DISABLE KEYS */;
+INSERT INTO `django_session` VALUES ('265xrvdne73sg2eqcbshc6a3ydz4fgvj','MWUxYTZjYjZkMWY1NWMxNzllNTZiYWRlZjU0NjhmZWY4YTNjMjE4Mzp7fQ==','2019-06-15 20:14:45.627007'),('3g3yuowgvsh1vpr50akbhpgo4w5qbcgy','MWUxYTZjYjZkMWY1NWMxNzllNTZiYWRlZjU0NjhmZWY4YTNjMjE4Mzp7fQ==','2019-06-15 19:59:16.977389'),('5gs0truco8j65082fyu7qz8wotnfknjp','MWUxYTZjYjZkMWY1NWMxNzllNTZiYWRlZjU0NjhmZWY4YTNjMjE4Mzp7fQ==','2019-06-15 21:21:55.230489'),('6u2z20pa8paubxbh4eiyua8x8177xnd5','MWUxYTZjYjZkMWY1NWMxNzllNTZiYWRlZjU0NjhmZWY4YTNjMjE4Mzp7fQ==','2019-06-04 09:22:11.871207'),('df8obzjwpmok74eftyccq7p99vga9wdx','MWUxYTZjYjZkMWY1NWMxNzllNTZiYWRlZjU0NjhmZWY4YTNjMjE4Mzp7fQ==','2019-06-15 20:12:52.382048'),('e5ooxs0u5469tenzv5kiiuwostixy9xe','MWUxYTZjYjZkMWY1NWMxNzllNTZiYWRlZjU0NjhmZWY4YTNjMjE4Mzp7fQ==','2019-06-04 09:20:52.515592'),('eu3ib26lu1rzfr2isvn300182sor4ka8','MWUxYTZjYjZkMWY1NWMxNzllNTZiYWRlZjU0NjhmZWY4YTNjMjE4Mzp7fQ==','2019-06-15 20:12:19.033313'),('fu4pgkjjic7epb29xxqbv7bbhbn2nsic','MWUxYTZjYjZkMWY1NWMxNzllNTZiYWRlZjU0NjhmZWY4YTNjMjE4Mzp7fQ==','2019-06-15 20:15:08.745475'),('h77x8nhqdv5nj7wi41ie8q1nkvmso0d3','MWUxYTZjYjZkMWY1NWMxNzllNTZiYWRlZjU0NjhmZWY4YTNjMjE4Mzp7fQ==','2019-06-15 20:11:33.787743'),('je7zcyvtmr3zw4gohcns5xsf8d859o7d','YWM2NjY1ZGE0MTg1ZTBjYTFmMTUyMThjY2Q0MTg4ZDU5Y2RhNzBlYTp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiIxYjhjYzdlNWMzOTcyZGRmMmRjNzhiZmZkNmEyYWQ2MmU1MzZhZGNhIn0=','2019-06-16 18:40:12.025581'),('nn1m18afiop4m2idhar0a0m3ahxgfoye','MWUxYTZjYjZkMWY1NWMxNzllNTZiYWRlZjU0NjhmZWY4YTNjMjE4Mzp7fQ==','2019-06-15 21:24:46.809456'),('pim2147658dz8b8hzf0m3ggqt3i1otsx','MWUxYTZjYjZkMWY1NWMxNzllNTZiYWRlZjU0NjhmZWY4YTNjMjE4Mzp7fQ==','2019-06-15 20:00:20.820489'),('ps5lb5cg14u7cnm9huxqh0fyqihtlw1g','MWUxYTZjYjZkMWY1NWMxNzllNTZiYWRlZjU0NjhmZWY4YTNjMjE4Mzp7fQ==','2019-06-15 20:57:00.205164'),('puhjatlwqkgrc548ihqprg189rkij5ij','MWUxYTZjYjZkMWY1NWMxNzllNTZiYWRlZjU0NjhmZWY4YTNjMjE4Mzp7fQ==','2019-06-15 20:02:54.266740'),('srxrzg3k6adlpvplwap1nzy6gf4v2jsh','MWUxYTZjYjZkMWY1NWMxNzllNTZiYWRlZjU0NjhmZWY4YTNjMjE4Mzp7fQ==','2019-06-15 20:20:41.535219'),('tiiwrxx15vppir2qdsjcj7xjhm06z9d9','MWUxYTZjYjZkMWY1NWMxNzllNTZiYWRlZjU0NjhmZWY4YTNjMjE4Mzp7fQ==','2019-06-16 00:33:21.511360'),('uo7s6wseacffspgtlpdrocys6cvgn46g','MWUxYTZjYjZkMWY1NWMxNzllNTZiYWRlZjU0NjhmZWY4YTNjMjE4Mzp7fQ==','2019-06-16 00:35:06.131430'),('w0qfb53gwnspdv5cumlsqffo4idh9mol','MWUxYTZjYjZkMWY1NWMxNzllNTZiYWRlZjU0NjhmZWY4YTNjMjE4Mzp7fQ==','2019-06-16 00:34:14.091036');
+/*!40000 ALTER TABLE `django_session` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2019-06-02 22:02:47
